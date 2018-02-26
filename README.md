@@ -1,4 +1,5 @@
 # DiagonalDrawable
+[ ![Download](https://api.bintray.com/packages/massivedisaster/drawable/diagonaldrawable/images/download.svg) ](https://bintray.com/massivedisaster/drawable/diagonaldrawable/_latestVersion)
 [![API](https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=16)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
