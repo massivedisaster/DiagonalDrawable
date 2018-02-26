@@ -1,5 +1,5 @@
 /*
- * DiagonalDrawable - A set of Android libraries to help speed up Android development.
+ * DiagonalDrawable - A Diagonal Drawable for backgrounds, etc..
  *
  * Copyright (c) 2018 DiagonalDrawable
  *
