@@ -1,0 +1,82 @@
+/*
+ * DiagonalDrawable - A set of Android libraries to help speed up Android development.
+ *
+ * Copyright (c) 2018 DiagonalDrawable
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining
+ * a copy of this software and associated documentation files (the
+ * "Software"), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish,
+ * distribute, sublicense, and/or sell copies of the Software, and to
+ * permit persons to whom the Software is furnished to do so, subject to
+ * the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+ * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+apply from: "$project.rootDir/deploy/updateReadme.gradle"
+
+ext {
+    userOrgBase = 'massivedisaster'
+    websiteBase = 'https://github.com/massivedisaster/DiagonalDrawable'
+    licensesBase = ['MIT']
+    packageBase = 'com.massivedisaster'
+    moduleBase = packageBase + '.drawable'
+    repoNameBase = "drawable"
+    isLibrary = true
+    libraryVersionCode = 1
+    libraryVersionName = project.libraryVersionName
+    librarySnaphotEnabled = false
+
+    libraryVersionString = {
+        return libraryVersionName + (librarySnaphotEnabled ? '-SNAPSHOT' : '')
+    }
+}
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$project.kotlinVersion"
+        classpath 'com.novoda:bintray-release:0.8.0'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+
+    tasks.withType(Javadoc) {
+        excludes = ['**/*.kt']
+    }
+}
+
+task version {
+    println "Current version: " + libraryVersionString()
+}
+
+task updateReadme() {
+    doLast {
+        processUpdateReadme file("$project.rootDir"), ".md", libraryVersionName
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
