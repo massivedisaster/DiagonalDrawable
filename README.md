@@ -24,9 +24,9 @@ DiagonalDrawable(ContextCompat.getColor(context, R.color.left),
                 DiagonalDrawable.Orientation.LEFT_RIGHT)
 ```
 
-Orientations available:
+Available orientations:
 
-```
+```java
 DiagonalDrawable.Orientation.LEFT_RIGHT
 DiagonalDrawable.Orientation.RIGHT_LEFT
 ```
